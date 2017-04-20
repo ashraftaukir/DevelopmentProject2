@@ -177,7 +177,6 @@ public class MainActivity extends AppCompatActivity implements DataCallback {
 
     void setupDrawerToggle() {
         mDrawerToggle = new android.support.v7.app.ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name);
-
         mDrawerToggle.syncState();
     }
 
