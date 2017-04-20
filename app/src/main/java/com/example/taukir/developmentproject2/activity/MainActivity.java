@@ -19,18 +19,19 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.example.taukir.developmentproject2.R;
+import com.example.taukir.developmentproject2.adapter.DrawerItemCustomAdapter;
 import com.example.taukir.developmentproject2.fragment.BottomFragment;
 import com.example.taukir.developmentproject2.fragment.ConnectFragment;
-import com.example.taukir.developmentproject2.myinterface.DataCallback;
-import com.example.taukir.developmentproject2.model.DataModel;
-import com.example.taukir.developmentproject2.adapter.DrawerItemCustomAdapter;
 import com.example.taukir.developmentproject2.fragment.FixturesFragment;
-import com.example.taukir.developmentproject2.R;
 import com.example.taukir.developmentproject2.fragment.TableFragment;
 import com.example.taukir.developmentproject2.fragment.TopFragment;
+import com.example.taukir.developmentproject2.model.DataModel;
+import com.example.taukir.developmentproject2.myinterface.DataCallback;
 
 public class MainActivity extends AppCompatActivity implements DataCallback {
 
+    protected DrawerLayout mDrawerLayout;
     Toolbar toolbar;
     android.support.v7.app.ActionBarDrawerToggle mDrawerToggle;
     FrameLayout contentframe, firstfragment, secondfragment;
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements DataCallback {
     BottomFragment bottomFragment;
     FragmentTransaction transaction;
     private String[] mNavigationDrawerItemTitles;
-    private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements DataCallback {
         DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.list_view_item_row, drawerItem);
         mDrawerList.setAdapter(adapter);
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         setupDrawerToggle();
 
@@ -142,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements DataCallback {
         switch (item.getItemId()) {
             case R.id.gridview:
 
-                Intent intent=new Intent(this,GridViewActivity.class);
+                Intent intent = new Intent(this, GridViewActivity.class);
                 this.startActivity(intent);
 
                 return true;
