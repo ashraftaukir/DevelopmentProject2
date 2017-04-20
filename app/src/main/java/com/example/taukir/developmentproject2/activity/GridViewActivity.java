@@ -24,11 +24,11 @@ public class GridViewActivity extends MainActivity{
         super.onCreate(savedInstanceState);
 
         //first solution
-      // getLayoutInflater().inflate(R.layout.activity_main, contentframe);
+      getLayoutInflater().inflate(R.layout.activity_main, contentframe);
 
-        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View contentView = inflater.inflate(R.layout.gridviewlayout, null, false);
-        mDrawerLayout.addView(contentView, 0);
+//        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        View contentView = inflater.inflate(R.layout.gridviewlayout, null, false);
+//        mDrawerLayout.addView(contentView, 0);
 
     }
 
