@@ -48,26 +48,8 @@ public class MainActivity extends AppCompatActivity implements DataCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mTitle = mDrawerTitle = getTitle();
-        mNavigationDrawerItemTitles = getResources().getStringArray(R.array.navigation_drawer_items_array);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
-        contentframe = (FrameLayout) findViewById(R.id.content_frame);
-        firstfragment = (FrameLayout) findViewById(R.id.firstfragment);
-        secondfragment = (FrameLayout) findViewById(R.id.secondfragment);
-        linearLayout = (LinearLayout) findViewById(R.id.linearlayout);
-        contentframe.setVisibility(View.GONE);
-        firstfragment.setVisibility(View.VISIBLE);
-        secondfragment.setVisibility(View.VISIBLE);
-        topFragment = new TopFragment();
-        bottomFragment = new BottomFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        transaction = manager.beginTransaction();
-        transaction.add(R.id.firstfragment, topFragment, "Frag_Top_tag");
-        transaction.add(R.id.secondfragment, bottomFragment, "Frag_Bottom_tag");
-        transaction.commit();
-
-
+        setUpViews();
+        setUpFragments();
         setupToolbar();
 
         DataModel[] drawerItem = new DataModel[3];
@@ -84,6 +66,31 @@ public class MainActivity extends AppCompatActivity implements DataCallback {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         setupDrawerToggle();
+
+    }
+
+    private void setUpFragments() {
+        topFragment = new TopFragment();
+        bottomFragment = new BottomFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        transaction = manager.beginTransaction();
+        transaction.add(R.id.firstfragment, topFragment, "Frag_Top_tag");
+        transaction.add(R.id.secondfragment, bottomFragment, "Frag_Bottom_tag");
+        transaction.commit();
+    }
+
+    private void setUpViews() {
+        mTitle = mDrawerTitle = getTitle();
+        mNavigationDrawerItemTitles = getResources().getStringArray(R.array.navigation_drawer_items_array);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        contentframe = (FrameLayout) findViewById(R.id.content_frame);
+        firstfragment = (FrameLayout) findViewById(R.id.firstfragment);
+        secondfragment = (FrameLayout) findViewById(R.id.secondfragment);
+        linearLayout = (LinearLayout) findViewById(R.id.linearlayout);
+        contentframe.setVisibility(View.GONE);
+        firstfragment.setVisibility(View.VISIBLE);
+        secondfragment.setVisibility(View.VISIBLE);
 
     }
 
